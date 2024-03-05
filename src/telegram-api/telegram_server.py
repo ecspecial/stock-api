@@ -39,7 +39,7 @@ def send_error_notification():
 def send_test_request():
     try:
         # Отправка GET-запроса на тестовый эндпоинт
-        response = requests.get('http://localhost:5000/test')
+        response = requests.get('http://localhost:8000/api/test')
         
         # Проверка статуса ответа
         if response.status_code == 200:
@@ -66,7 +66,7 @@ def check_server_status():
             # Если получен успешный ответ, выводим сообщение о работе сервера
             # print('Сервер работает')
             # Переход к следующей итерации через 5 минут
-            time.sleep(300)
+            time.sleep(5)
         else:
             # Если получен неуспешный ответ, увеличиваем счетчик попыток
             attempts += 1
@@ -77,7 +77,7 @@ def check_server_status():
                 attempts = 0
             else:
                 # Если количество попыток меньше 3, ждем 1 минуту перед следующей попыткой
-                time.sleep(60)
+                time.sleep(5)
 
 # Вызов функции для проверки статуса работы сервера
 check_server_status()
